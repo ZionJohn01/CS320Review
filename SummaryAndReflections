@@ -1,0 +1,32 @@
+Describe your unit testing approach for each of the three features.
+a.	To what extent was your approach aligned to the software requirements? Support your claims with specific evidence.
+To ensure that the contact service was working properly I tested with methods such as testAddContactWithFirstName, testDeleteContact, testUpdateName. These allowed me to test whether the functional requirements were being met. I was able to add contacts, delete contacts, and even update contacts with zero errors. The same ideology was applied to the task service and the appointment service. The test service included methods like testDeleteTask, testUpdateName, and testUpdateDescription. The appointment service method ‘testAppointmentDateInPast’ ensured that no dates could be set in the past and only allowed for future dates.
+
+b.	Defend the overall quality of your Junit tests. In other words, how do you know your Junit tests were effective based on the coverage percentage?
+My Junit coverage percentage was 80% or higher. I achieved this by creating tests for every feature of the code. Each path that was able to be tested was a path that I made sure to create a test for. In a professional setting this is vital to the overall quality of the product that the team would be releasing. 
+Describe your experience writing the Junit tests.
+a.	How did you ensure that your code was technically sound? Cite specific lines of code from your tests to illustrate.
+To test that phone numbers could be successfully updated I wrote a test that would call our function ‘updatePhoneNumber’ and use the phone number ‘9876543210’. This updated the contact’s phone number. We then perform a check to see if the current phone number is equal to ‘9876543210’ to which it returns true. By using assertions and exceptions I was able to verify that the code functioned properly when to put to use.
+b.	How did you ensure that your code was efficient? Cite specific lines of code from your tests to illustrate.
+contactService.addContact(“Zion”);
+List<Contact> contactList = contactService.getContactList();
+Assertions.assertEquals(1, contactList.size());
+Here in this code we add a contact and then immediately retrieve the contact list size. This is performed without any repeating steps showcasing an efficient use of tests.
+
+Testing  Techniques
+a.	What were the software testing techniques that you employed in this project? Describe their characteristics using specific details.
+The major software testing technique that I used in this project would be unit testing. We built our application with the three main features being the contact, task, and appointment classes but we also used the contact service, task service, and appointment service classes. There is a lot going on in all of these classes. To efficiently test each of them I created tests for each and every one of them. A test for each unit. I also performed some boundary testing in trying to add tasks with names that were too long. 
+b.	What are the other software testing techniques that you did not use for this project? Describe their characteristics using specific details.
+Although I did try to write the program to be efficient as well as the tests, I did not specifically write any tests for performance. Performance can be a major factor in a user’s perception of an application. Often in a professional environment the team would test the performance of an application. That is not something that I put a focus on in this project.
+
+c.	For each of the techniques you discussed, explain the practical uses and implications for different software development projects and situations.
+Unit testing is absolutely necessary for any project. It ensures that each piece of the software is actually functional in a real scenario. Boundary testing is also important as it protects users from themselves. A user might accidentally select the wrong year when setting an appointment. Performance testing is also very important and even more important in the right setting. For example, if we were building an application for a shipping company or medical device then the performance would be key. 
+
+Mindset
+a.	Assess the mindset that you adopted working on this project. In acting as a software tester, to what extent did you employ caution? Why was it important to appreciate the complexity and interrelationships of the code you were testing? Provide specific examples to illustrate your claims.
+I was very cautious when building this application. I made sure to take my time and ensure that each test was able to pass without issue. In our Contact Service class we have a method called deleteContact. I had to be very cautious when building this as there are several dependencies on the contact list. If removing a contact broke the contact list, then several other things could break even worse.
+b.	Assess the ways you tried to limit bias in your review of the code. On the software developer side, can you imagine that bias would be a concern if you were responsible for testing your own code? Provide specific examples to illustrate your claims.
+Of course with any piece of code that someone writes and reviews there will be bias. They are the one who wrote it after all. On this project however I tried to limit my bias by comparing strictly to the software requirements. It is not about what I want in the application or would want to see when reviewing it. It is about following the requirements and ensuring that they are met.
+
+c.	Finally, evaluate the importance of being disciplined in your commitment to quality as a software engineering professional. Why is it important not to cut corners when it comes to writing or testing code? How do you plan to avoid technical debt as practitioner in the field? Provide specific examples to illustrate your claims.
+When writing an application such as this, there are many dependencies. Like I stated before when removing a contact from the contact list it could have broken many other things that relied on it. It is important to not cut any corners when writing code to prevent this sort of thing from happening. It can drastically drive up development costs to have to repeatedly go back and fix past mistakes. I am confident in saying that we have all made the mistake of writing a section of code that would later come back to haunt us. The best thing we can do is learn from this and as we write, we thoroughly test our code. 
